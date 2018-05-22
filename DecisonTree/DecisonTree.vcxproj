@@ -121,10 +121,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Data.cpp" />
     <ClCompile Include="src\DecisionTree.cpp" />
+    <ClCompile Include="src\Set.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Data.h" />
     <ClInclude Include="inc\DecisionTree.h" />
+    <ClInclude Include="inc\Node.h" />
+    <ClInclude Include="inc\Set.h" />
     <ClInclude Include="inc\UserType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
