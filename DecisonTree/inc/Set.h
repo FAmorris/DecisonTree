@@ -19,13 +19,10 @@ public :
 
 	i32 getSamplesCount() const;
 	i32 *getIndexPtr() const;
-	Data *getDataPtr() const;
 
-	i32 getNumOfAtrributeValue() const;
 	d64 getEntropy() const;
 	d64 getConditionalEntropy( i32 attr ) const;
 	void divideAccordingAtrribute(  i32 attr, Set **setPtrs ) const;
-	void divideAccordingClassies( Set **setPtrs ) const;
 
 	bool isPure() const;
 };

@@ -7,7 +7,8 @@ class Node {
 private :
 	i32 label;
 	i32 subNodeCount;
-	Node *subNodePtrs;
+	d64 *attrPtr;
+	Node *subNodePtr;
 
 public :
 	Node();

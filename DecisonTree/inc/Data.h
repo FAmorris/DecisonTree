@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include "UserType.h"
+#include "Attribute.h"
 using namespace std;
 
 class Data{
@@ -46,7 +47,8 @@ public :
 	void randSequence(); /* 生成随机序列 */
 	void creatFramework( ); /* 生成数据存储框架 */
 	void init(); /* 初始化数据框架 */
-
+	
+	Attribute A;
 private :
 	i32 row;/* 矩阵行数 */
 	i32 column; /* 矩阵列数 */

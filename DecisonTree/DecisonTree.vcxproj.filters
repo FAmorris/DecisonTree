@@ -27,6 +27,9 @@
     <ClCompile Include="src\Set.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\Attribute.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Data.h">
@@ -42,6 +45,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="inc\Set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Attribute.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -119,11 +119,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Attribute.cpp" />
     <ClCompile Include="src\Data.cpp" />
     <ClCompile Include="src\DecisionTree.cpp" />
     <ClCompile Include="src\Set.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Attribute.h" />
     <ClInclude Include="inc\Data.h" />
     <ClInclude Include="inc\DecisionTree.h" />
     <ClInclude Include="inc\Node.h" />

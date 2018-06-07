@@ -17,6 +17,9 @@ Data::Data( i32 r, i32 c, i32 nc )
 	this->setMatrixRow( r );
 	this->setMatrixColumn( c );
 	this->setNumOfClasses( nc );
+	this->A.setRows( r );
+	this->A.setSurplus( r );
+	this->A.generate( *this );
 
 	if( r > 0 || c > 0 ){
 		this->creatFramework();

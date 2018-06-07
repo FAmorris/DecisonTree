@@ -21,7 +21,7 @@ void Set::setDataPtr( Data *dataPtr )
 
 void Set::setSamplesCount( i32 samplesCount )
 {
-	this->samplesCount = ( samplesCount > 0 && this->dataPtr->getMatrixColumn() ) ? samplesCount : 0;
+	this->samplesCount = ( samplesCount >= 0  ) ? samplesCount : 0;
 } /* end function setIndexCount */
 void Set::setIndexPtr( i32 *indexPtr )
 {
@@ -43,18 +43,24 @@ i32 *Set::getIndexPtr() const
 	return this->indexPtr;
 } /* end function getIndexPtr */
 
-Data *Set::getDataPtr() const
+void Set::divideAccordingAtrribute( i32 attr, Set **setPtrs ) const
 {
-	return this->dataPtr;
-} /* end function getDataPtr */
+	i32 numOfValues = this->dataPtr->A.getNumOfValuesOfAttribute( attr );
+	i32 *iPtr = NULL;
+
+	for( i32 i = 0; i < numOfValues; i++ ) {
+		
+	} /* end for */
+
+} /* end function divideAccordingAttribute */
 
 d64 Set::getEntropy() const
 {
 	d64 entropy = 0.0;
 	i32 sCount = this->getSamplesCount();
-	i32 classes = this->getDataPtr()->getNumOfClasses();
+	i32 classes = this->dataPtr->getNumOfClasses();
 	i32 *classFrePtr = new i32[  classes + 1 ];
-	i32 *amPtr = this->getDataPtr()->getAimOutput();
+	i32 *amPtr = this->dataPtr->getAimOutput();
 	i32 *indPtr = this->getIndexPtr();
 
 	for ( i32 i = 0; i < classes + 1; i++ ) {
