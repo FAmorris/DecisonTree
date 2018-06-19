@@ -49,12 +49,10 @@ i32 Attribute::getNumOfValuesOfAttribute( i32 attr ) const
 	return this->countPtr[ attr ];
 } /* end function getNumOfValuesOfAttribute */
 
-d64 *Attribute::getValuesOfAttribute() const
+d64 *Attribute::getValuesOfAttribute( i32 attr ) const
 {
-	if ( this->current == -1 ) {
-		return NULL;
-	} /* end if */
-	return this->attPtrs[ this->current ];
+	if ( attr >= 0 ) return this->attPtrs[ attr ];
+	else return NULL;
 } /* end function getValuesOfAttribute */
 
 void Attribute::setUsed( i32 index ) {
@@ -77,6 +75,16 @@ void Attribute::setContinuous( i32 index )
 {
 	if ( index > 0 && index < this->rows ) {
 		this->isContinuous[ index ] = true;
+		d64 temp;
+		for ( i32 i = 1; i < this->countPtr[ index ]; i ++ ) {
+			for ( i32 j = 0; j < this->countPtr[ index ] - 1; j++ ) {
+				if ( this->attPtrs[ index ][ j ] > this->attPtrs[ index ][ j + 1 ] ) {
+					temp = this->attPtrs[ index ][ j ];
+					this->attPtrs[ index ][ j ] = this->attPtrs[ index ][ j + 1 ];
+					this->attPtrs[ index ][ j + 1 ] = temp;
+				} /* end if */
+			} /* end inner for */
+		} /* end outter for */
 	} /* end if */
 	else {
 		cout << "Ë÷Òý³¬³ö·¶Î§" << endl;
@@ -103,13 +111,11 @@ void Attribute::generate( const Data &dataRef )
 
 	for ( i32 r = 0; r < this->rows; r++ ) {
 		for( i32 c = 0; c < columns; c++ ) {
-
 			if ( !_isInList( dPtrs[ r ][ c ], attPtrs[ r ], this->countPtr[ r ] ) ) {
-				this->attPtrs[ r ] = ( d64 * )realloc( this->attPtrs[ r ], sizeof( d64 ) * this->countPtr[ r ] + 1 );
-				this->attPtrs[ r ][ this->countPtr[ r ] ] = dPtrs[ r ][ c ];
 				this->countPtr[ r ]++;
+				this->attPtrs[ r ] = ( d64 * )realloc( this->attPtrs[ r ], sizeof( d64 ) * this->countPtr[ r ] );
+				this->attPtrs[ r ][ this->countPtr[ r ] - 1 ] = dPtrs[ r ][ c ];
 			} /* end if */
-
 		} /* end inner for */
 	} /* end outer for */
 } /* end function generate */

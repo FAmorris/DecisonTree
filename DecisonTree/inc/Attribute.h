@@ -17,7 +17,7 @@ public :
 
 	i32 getAttribute();
 	i32 getNumOfValuesOfAttribute( i32 attr ) const; 
-	d64 *getValuesOfAttribute() const;
+	d64 *getValuesOfAttribute( i32 attr ) const;
 	void setRows( i32 rows );
 	void setSurplus( i32 surplus );
 	i32 getSurplus() const;
